@@ -1,0 +1,19 @@
+@use "../global" as *;
+/* pattern
+========================================================================*/
+
+/* pattern-2col
+------------------------------------------------------------------------*/
+.pattern-2col__cols {
+  gap: rem(32);
+  flex-direction: column;
+
+  @include media(min, lg-min) {
+    flex-direction: row;
+    gap: rem(120);
+  }
+}
+
+:is(.pattern-2col__col) > div {
+  width: 100%;
+}

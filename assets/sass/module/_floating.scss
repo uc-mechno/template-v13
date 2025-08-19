@@ -1,0 +1,49 @@
+@use "../global" as *;
+/* floating
+========================================================================*/
+.floating {
+  position: fixed;
+  right: 0;
+  top: 330px;
+  transform: translateY(-50%);
+  z-index: 20;
+  //transition: right var(--duration-lv3) ease;
+
+  a {
+    @include hover(true) {
+      background-color: var(--color-main-primary-400);
+    }
+    @include media(max, sm-max) {
+      display: none;
+    }
+
+    align-items: center;
+    // background: var(--gradation-primary);
+    background-color: var(--color_main);
+    color: var(--color-white);
+    display: flex;
+    filter: drop-shadow(var(--drop-shadow-lv1));
+    font-size: 16px;
+    font-weight: var(--font-weight-700);
+    gap: .5em;
+    letter-spacing: .1em;
+    padding: 2.5em 1em;
+    text-orientation: upright;
+    transition: background-color var(--default-duration) ease;
+    writing-mode: vertical-rl;
+  }
+}
+
+// .floating.is-show {
+//   animation-duration: .5s;
+//   animation-fill-mode: forwards;
+//   animation-name: floatingAnimation-in;
+//   animation-timing-function: ease;
+// }
+
+// .floating.is-hide {
+//   animation-duration: .5s;
+//   animation-fill-mode: forwards;
+//   animation-name: floatingAnimation-out;
+//   animation-timing-function: ease;
+// }

@@ -1,0 +1,7 @@
+@use "../global" as *;
+/* leading-trim
+========================================================================*/
+
+.u-leading-trim {
+  margin-block: var(--leading-trim) $important;
+}

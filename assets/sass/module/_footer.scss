@@ -1,0 +1,67 @@
+@use "../global" as *;
+/* footer
+========================================================================*/
+
+$footer-nav-space: 24px;
+
+.l-footer__widgetArea {
+  @include media(max, lg-max) {
+    display: none;
+  }
+}
+
+.w-footer__box #media_image-2 {
+  img {
+    max-width: 232px !important;
+  }
+}
+
+.w-footer__box #text-9 .textwidget p {
+  font-size: var(--wp--preset--font-size--small) !important;
+}
+
+.footer-nav .footer-nav__list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer-nav .footer-nav__item {
+  line-height: var(--default-line-height);
+  margin: $footer-nav-space 0;
+
+  a {
+    @include hover(true) {
+      color: var(--color-gray-300);
+    }
+
+    color: var(--color-white);
+    text-decoration: none;
+    transition: color var(--duration-lv3) ease;
+  }
+}
+
+.footer-nav.footer-nav--02 .footer-nav__item {
+  &:not(:first-of-type) {
+    padding-left: 12px;
+    position: relative;
+
+    &::before {
+      background-color: var(--color-white);
+      content: "";
+      height: 1px;
+      left: 0;
+      position: absolute;
+      top: 11px;
+      width: 6px;
+    }
+  }
+}
+.footer-nav.footer-nav--03 {
+  padding-top: $footer-nav-space !important;
+}
+
+.l-footer .copyright {
+  a {
+    color: var(--color-white);
+  }
+}

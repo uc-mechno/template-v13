@@ -1,0 +1,16 @@
+@use "../global" as *;
+/* recruit-welfare
+========================================================================*/
+.recruit-welfare-benefits .swell-block-box-menu {
+  --the-box-width--tab: 100% !important;
+}
+.recruit-welfare-benefits .swell-block-box-menu__link {
+  filter: drop-shadow(var(--drop-shadow-lv3));
+  padding: rem(32) rem(48) !important;
+}
+.recruit-welfare-benefits .swell-block-box-menu__figure {
+  margin-right: rem(40) !important;
+}
+
+.recruit-welfare-thanksgiving {
+}

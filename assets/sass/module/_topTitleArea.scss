@@ -1,0 +1,30 @@
+@use "../global" as *;
+
+/* topTitleArea
+========================================================================*/
+
+.l-topTitleArea {
+  @include media(min, sm-min) {
+    min-height: 380px;
+  }
+}
+
+.c-pageTitle {
+  align-items: baseline;
+  color: var(--color-white) !important;
+  display: flex;
+  filter: drop-shadow(var(--drop-shadow-lv2));
+  flex-direction: column;
+  font-size: fluid-size(32, 48);
+}
+
+.c-pageTitle__subTitle {
+  color: var(--color-white) !important;
+  filter: drop-shadow(var(--drop-shadow-lv2));
+  font-family: var(--default-font-family-en);
+  font-size: fluid-size(18, 24);
+  font-style: italic;
+  font-weight: var(--font-weight-700);
+  margin-left: 0;
+  opacity: 1;
+}

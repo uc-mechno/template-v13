@@ -1,0 +1,54 @@
+@use "../global" as *;
+
+/* gnav
+========================================================================*/
+.c-gnav {
+  gap: fluid-size(24, 40, xxxl-min);
+}
+
+.c-gnav .menu-item {
+  a {
+    gap: 4px;
+  }
+}
+
+.c-gnav .ttl {
+  color: var(--color-sub-primary-800);
+  font-family: var(--default-font-family-en);
+  font-weight: var(--font-weight-700);
+}
+
+.c-gnav .c-smallNavTitle {
+  color: var(--color-sub-primary-500);
+  font-size: 12px;
+}
+
+.c-gnav .sub-menu .sub-menu {
+  a {
+    padding-left: .75em;
+  }
+}
+
+
+.gnav-button-wrap__button .swell-block-button__link {
+  flex-direction: column;
+  font-family: var(--default-font-family-en);
+  font-weight: var(--font-weight-700) !important;
+  width: 104px;
+}
+
+.w-header {
+  filter: drop-shadow(var(--drop-shadow-lv2));
+  margin-bottom: -8px;
+  margin-left: fluid-size(24, 40, xxxl-min) !important;
+}
+
+.w-header :is(.w-header__inner,.w-header__item,.textwidget,.p-blogParts,.wp-block-group,.swell-block-button,.swell-block-button__link) {
+  height: 100%;
+}
+
+.c-submenuToggleBtn {
+  @include media(min, sm-min) {
+    display: none;
+  }
+}

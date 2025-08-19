@@ -1,0 +1,44 @@
+@use "../global" as *;
+
+.u-iteration2 {
+  animation-iteration-count: 2 $important;
+}
+
+.u-iteration-infinite {
+  animation-iteration-count: infinite $important;
+}
+
+.u-delay02 {
+  animation-delay: .2s $important;
+}
+
+
+.u-delay04 {
+  animation-delay: .4s $important;
+}
+
+.u-delay06 {
+  animation-delay: .6s $important;
+}
+
+.u-delay08 {
+  animation-delay: .8s $important;
+}
+
+.u-delay1 {
+  animation-delay: 1s $important;
+}
+
+.u-delay12 {
+  animation-delay: 1.2s $important;
+}
+
+.u-delay14 {
+  animation-delay: 1.4s $important;
+}
+.u-delay16 {
+  animation-delay: 1.6s $important;
+}
+.u-delay18 {
+  animation-delay: 1.8s $important;
+}

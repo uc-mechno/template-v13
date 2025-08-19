@@ -1,0 +1,568 @@
+@use "../global" as *;
+
+/* _animation
+========================================================================*/
+/* floatingAnimation
+------------------------------------------------------------------------*/
+@keyframes floatingAnimation-in {
+  to {
+    right: 0px;
+  }
+}
+@keyframes floatingAnimation-out {
+  from {
+    right: 0px;
+  }
+}
+
+/* fadeIn
+------------------------------------------------------------------------*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.is-animated figure {
+  animation-delay: .2s;
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  animation-name: fadeIn;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+// .is-animated .recruit-sec__movie {
+//   animation-delay: .2s;
+//   animation-duration: 1.2s;
+//   animation-fill-mode: forwards;
+//   animation-name: fadeIn;
+//   opacity: 0;
+//   transform: translateY(12px);
+// }
+
+.is-animated .is-fadeIn {
+  animation-delay: .2s;
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  animation-name: fadeIn;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+// .card-animation__item {
+//   opacity: 0;
+// }
+
+.is-animated .card-animation__item {
+  animation-delay: .2s;
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  animation-name: fadeIn;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.card-animation__item:nth-child(2) {
+  animation-delay: .4s;
+}
+
+.card-animation__item:nth-child(3) {
+  animation-delay: .6s;
+}
+
+.card-animation__item:nth-child(4) {
+  animation-delay: .8s;
+}
+
+.card-animation__item:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.card-animation__item:nth-child(6) {
+  animation-delay: 1.2s;
+}
+
+.card-animation__item:nth-child(7) {
+  animation-delay: 1.4s;
+}
+
+.card-animation__item:nth-child(8) {
+  animation-delay: 1.6s;
+}
+
+.card-animation__item:nth-child(9) {
+  animation-delay: 1.8s;
+}
+
+// .box-menu-animation__item {
+//   opacity: 0;
+// }
+
+.is-animated .box-menu-animation__item {
+  animation-delay: .2s;
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  animation-name: fadeIn;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.box-menu-animation__item:nth-child(2) {
+  animation-delay: .4s;
+}
+
+.box-menu-animation__item:nth-child(3) {
+  animation-delay: .6s;
+}
+
+.box-menu-animation__item:nth-child(4) {
+  animation-delay: .8s;
+}
+
+.box-menu-animation__item:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.box-menu-animation__item:nth-child(6) {
+  animation-delay: 1.2s;
+}
+
+.box-menu-animation__item:nth-child(7) {
+  animation-delay: 1.4s;
+}
+
+.box-menu-animation__item:nth-child(8) {
+  animation-delay: 1.6s;
+}
+
+.box-menu-animation__item:nth-child(9) {
+  animation-delay: 1.8s;
+}
+
+/* stepFadeIn
+------------------------------------------------------------------------*/
+@keyframes stepFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.recruit-company-history__item {
+  opacity: 0;
+}
+
+.recruit-info-flow__item {
+  opacity: 0;
+}
+
+.is-animated.recruit-company-history__item {
+  animation-delay: .1s;
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  animation-name: stepFadeIn;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.is-animated.recruit-info-flow__item {
+  animation-delay: .1s;
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  animation-name: stepFadeIn;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+/* stepLine
+------------------------------------------------------------------------*/
+@keyframes stepLine {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+.recruit-company-history__item:before {
+  opacity: 0;
+}
+
+.recruit-company-history__item.is-animated:before {
+  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: stepLine;
+}
+.recruit-info-flow__item:before {
+  opacity: 0;
+}
+
+.recruit-info-flow__item.is-animated:before {
+  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: stepLine;
+}
+
+
+/* bgSlideAnimation
+------------------------------------------------------------------------*/
+@keyframes bgSlideAnimation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.is-animated .recruit-section__title-inner {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: bgSlideAnimation;
+  display: inline-block;
+  opacity: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.is-animated .recruit-sec__title-inner {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: bgSlideAnimation;
+  display: inline-block;
+  opacity: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.is-animated .recruit-company-history__title-inner {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: bgSlideAnimation;
+  display: inline-block;
+  opacity: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.is-animated .recruit-info-flow__title-inner {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: bgSlideAnimation;
+  display: inline-block;
+  opacity: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+// .is-animated .is-bgSlideAnimationInner {
+//   animation-duration: 1s;
+//   animation-fill-mode: forwards;
+//   animation-name: bgSlideAnimationInner;
+//   display: inline-block;
+//   opacity: 0;
+//   overflow: hidden;
+//   position: relative;
+// }
+
+// .is-animated .is-bgSlideAnimation p {
+//   animation-delay: .6s;
+//   animation-duration: 1s;
+//   animation-fill-mode: forwards;
+//   animation-name: bgSlideAnimation;
+//   opacity: 0;
+// }
+
+.is-animated .is-bgSlideAnimation {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: bgSlideAnimation;
+  display: inline-block;
+  opacity: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.is-animated .is-bgSlideAnimation :where(span, p, H2, H3) {
+  animation-delay: .6s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: bgSlideAnimation;
+  opacity: 0;
+}
+
+// .is-animated .is-bgSlideAnimationInner p {
+//   animation-delay: .6s;
+//   animation-duration: 1s;
+//   animation-fill-mode: forwards;
+//   animation-name: bgSlideAnimationInner;
+//   opacity: 0;
+// }
+
+
+/* bgSlideAnimationInner
+------------------------------------------------------------------------*/
+@keyframes bgSlideAnimationInner {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.is-animated .recruit-section__title-inner span {
+  animation-delay: .6s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: bgSlideAnimationInner;
+  opacity: 0;
+  padding: 20px;
+}
+
+.is-animated .recruit-section__title-inner h2 {
+  animation-delay: .6s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: bgSlideAnimationInner;
+  opacity: 0;
+}
+
+.is-animated .recruit-sec__title-inner h2 {
+  animation-delay: .6s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: bgSlideAnimationInner;
+  opacity: 0;
+}
+
+.is-animated .recruit-company-history__title-inner p {
+  animation-delay: .6s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: bgSlideAnimationInner;
+  opacity: 0;
+}
+
+
+
+/* bgSlideAnimationBefore
+------------------------------------------------------------------------*/
+@keyframes bgSlideAnimationBefore {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  50.0001% {
+    transform-origin: right;
+  }
+
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+.is-animated .recruit-section__title-inner::before {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: bgSlideAnimationBefore;
+  background: var(--color_main);
+  color: #fff;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.is-animated .recruit-sec__title-inner::before {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: bgSlideAnimationBefore;
+  background: var(--color_main);
+  color: #fff;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.is-animated .recruit-company-history__title-inner::before {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: bgSlideAnimationBefore;
+  background: var(--color_main);
+  color: #fff;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.is-animated .recruit-company-history__title-inner::before {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: bgSlideAnimationBefore;
+  background: var(--color_main);
+  color: #fff;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.is-animated .recruit-info-flow__title::before {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: bgSlideAnimationBefore;
+  background: var(--color_main);
+  color: #fff;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.is-animated .is-bgSlideAnimation::before {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-name: bgSlideAnimationBefore;
+  background: var(--color_main);
+  color: #fff;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+// .is-animated .is-bgSlideAnimationInner::before {
+//   animation-duration: 1s;
+//   animation-fill-mode: forwards;
+//   animation-name: bgSlideAnimationBefore;
+//   background: var(--color_main);
+//   color: #fff;
+//   content: "";
+//   height: 100%;
+//   left: 0;
+//   position: absolute;
+//   width: 100%;
+// }
+
+@keyframes imgAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  51% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes maskAnimation {
+  0% {
+    transform: scale(0,1);
+    transform-origin: left top;
+  }
+
+  50% {
+    transform: scale(1,1);
+    transform-origin: left top;
+  }
+
+  51% {
+    transform: scale(1,1);
+    transform-origin: right top;
+  }
+
+  100% {
+    transform: scale(0,1);
+    transform-origin: right top;
+  }
+}
+
+.is-masking {
+  position: relative;
+}
+
+.is-masking::before {
+  background-color: var(--color_main);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: scale(0,1);;
+  width: 100%;
+  z-index: 1;
+}
+
+.is-masking img {
+  backface-visibility: hidden;
+  opacity: 0;
+}
+
+// .js-c-maskimg.is-animated::before {
+//   animation: mask-anim 1.75s cubic-bezier(.86,0,.07,1) forwards;
+// }
+.is-masking.is-animated::before {
+  animation-duration: 1.4s;
+  animation-fill-mode: forwards;
+  animation-name: maskAnimation;
+}
+
+.is-masking.is-animated img {
+  animation: imgAnimation 1.4s forwards;
+}
+
+:where(
+  .is-fadeInTrigger,
+  .is-fadeInFigureTrigger figure,
+  .card-animation__item,
+  .box-menu-animation__item
+  ) {
+  opacity: 0;
+}

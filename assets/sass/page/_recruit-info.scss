@@ -1,0 +1,21 @@
+@use "../global" as *;
+/* recruit-info
+========================================================================*/
+.recruit-info-flow__item {
+  &::before {
+    border-top-color: var(--color_main) !important;
+    left: 49% !important;
+  }
+}
+
+.recruit-info-flow__item .swell-block-step__number {
+  &::after {
+    font-family: var(--default-font-family-en) !important;
+    font-size: rem(24) !important;
+  }
+}
+
+.recruit-info-flow__item .swell-block-step__number .__label {
+  font-family: var(--default-font-family-en) !important;
+  font-size: rem(14) !important;
+}

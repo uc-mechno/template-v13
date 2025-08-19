@@ -1,0 +1,13 @@
+@use "../global" as *;
+/* gallery
+========================================================================*/
+
+.gallery {
+
+}
+.gallery__img {
+
+  img {
+    filter: drop-shadow(var(--drop-shadow-lv1))
+  }
+}

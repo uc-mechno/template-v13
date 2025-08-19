@@ -1,0 +1,81 @@
+{
+  /** デフォルトのフォーマッタの設定 */
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[html]": {
+    "editor.formatOnSave": true, // htmlファイルは保存時にフォーマットする
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // prettier
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true, // scssファイルは保存時にフォーマットする
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // prettier
+  },
+  "[css]": {
+    "editor.formatOnSave": false // cssファイルは保存時にフォーマットしない
+  },
+  "[scss]": {
+    "editor.formatOnSave": false // scssファイルは保存時にフォーマットしない
+  },
+  "[php]": {
+    "editor.formatOnSave": true, // phpファイルは保存時にフォーマットする
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client" // intelephense
+  },
+  "[json]": {
+    "editor.formatOnSave": true, // jsonファイルは保存時にフォーマットする
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // prettier
+  },
+  "[markdown]": {
+    "editor.formatOnSave": false // markdownファイルは保存時にフォーマットしない
+  },
+
+  /** prettier */
+  "prettier.ignorePath": "../.prettierignore", // 除外ファイルのパス
+
+  /** CSSComb */
+  "csscomb.formatOnSave": false, //保存時にフォーマットするかどうか
+  "csscomb.ignoreFilesOnSave": [
+    //除外ファイルの設定
+    "**/node_modules/**" // node_modules以下を除外
+  ],
+  "csscomb.syntaxAssociations": {
+    "postcss": "scss" // scssに対応
+  },
+  "csscomb.preset": "./.vscode/csscomb.json", //設定ファイルの指定
+
+  /** Code Spell Checker */
+  "cSpell.ignorePaths": [
+    "**/package.json", // package.jsonを除外
+    "**/package-lock.json", // package-lock.jsonを除外
+    "**/node_modules/**", // node_modules以下を除外
+    "**/.vscode/", // .vscode以下を除外
+    "**/settings.json" // settings.jsonを除外
+  ],
+
+  /** Live Sass Compiler */
+  //のAutoprefixer設定
+  "liveSassCompile.settings.autoprefix": [
+    "last 2 versions", // メジャーバージョンの最新2つ
+    "> 1%", // グローバルシェアが1%以上
+    "not dead" // 過去1年間にアップデートされたブラウザのみ
+  ],
+  //除外リスト
+  "liveSassCompile.settings.excludeList": [
+    "/**/node_modules/**", // node_modulesファイルを除外
+    "/.vscode/**", // .vscodeファイルを除外
+    "/.history/**", // .historyファイル
+    "/swell/**" // swellファイル
+  ],
+  "liveSassCompile.settings.generateMap": true, //mapファイルを出すか（true）
+  "liveSassCompile.settings.showOutputWindowOn": "Error", // エラーログ出力（エラー時のみ）
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded", // フォーマットルール
+      "extensionName": ".css", // コンパイルされたファイルの拡張子
+      "savePath": "~/../../assets/css", // 保存場所のパス
+    },
+    {
+      "format": "compressed", // フォーマットルール
+      "extensionName": ".min.css", // コンパイルされたファイルの拡張子
+      "savePath": "~/../../assets/css" // 保存場所のパス
+    }
+  ]
+}

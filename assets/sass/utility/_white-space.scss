@@ -1,0 +1,42 @@
+@use "../global" as *;
+/* white-space
+========================================================================*/
+.u-white-space-pre {
+  white-space: pre $important;
+}
+
+.u-white-space-pre-wrap {
+  white-space: pre-wrap $important;
+}
+
+.u-white-space-pre-line {
+  white-space: pre-line $important;
+}
+
+.u-white-space-normal {
+  white-space: normal $important;
+}
+
+.u-white-space-nowrap {
+  white-space: nowrap $important;
+}
+
+.u-white-space-initial {
+  white-space: initial $important;
+}
+
+.u-white-space-inherit {
+  white-space: inherit $important;
+}
+
+.u-white-space-break-spaces {
+  white-space: break-spaces $important;
+}
+
+.u-white-space-keep-all {
+  white-space: keep-all $important;
+}
+
+.u-white-space-break-word {
+  white-space: break-word $important;
+}

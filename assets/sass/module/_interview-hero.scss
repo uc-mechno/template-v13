@@ -1,0 +1,22 @@
+@use "../global" as *;
+
+/* interview-hero
+========================================================================*/
+.interview-hero {
+}
+.interview-hero__columns {
+  //background: var(--default-color-main);
+}
+.interview-hero__column01 {
+}
+.interview-hero__column02 {
+  background: var(--default-color-main);
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+.interview-hero__content01 {
+  flex-grow: 1;
+}
+.interview-hero__content02 {
+}

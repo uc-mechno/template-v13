@@ -1,0 +1,26 @@
+@use "../global" as *;
+/* text-align
+========================================================================*/
+.u-text-align-center {
+  text-align: center $important;
+}
+
+.u-text-align-left {
+  text-align: left $important;
+}
+
+.u-text-align-right {
+  text-align: right $important;
+}
+
+.u-text-align-justify {
+  text-align: justify $important;
+}
+
+.u-text-align-initial {
+  text-align: initial $important;
+}
+
+.u-text-align-inherit {
+  text-align: inherit $important;
+}
