@@ -1,9 +1,9 @@
 /**
  * グローバル定数
  */
-const SITE_URL = 'https://test.ichi-com.co.jp/toeicom/';
+const SITE_URL = 'ここにURL';
 const CURRENT_URL = window.location.href;
-const SITE_NAME = 'Toei Communications Co., Ltd.';
+const SITE_NAME = 'ここにサイト名';
 const WP_PATH = 'wp/wp-content/themes/';
 const THEMES_PATH = 'swell_child/';
 
