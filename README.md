@@ -11,10 +11,6 @@ swell子テーマ使用テンプレート
 - テーマURI: [https://swell-theme.com/](https://swell-theme.com/)
 
 ## ディレクトリ構成
-treeコマンド
-```
-tree -L 3 -a -I ".git|.DS_Store|csscomb1.json|settings1.json|settings2.json" --dirsfirst
-```
 ```
 .
 ├── .vscode
