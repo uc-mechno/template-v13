@@ -1,0 +1,13 @@
+@use "../global" as *;
+/* recruit-company
+========================================================================*/
+.recruit-company-history__item .swell-block-step__number {
+  &::after {
+    font-family: var(--default-font-family-en);
+    font-size: rem(24);
+  }
+}
+.recruit-company-history__item .swell-block-step__number .__label {
+  font-family: var(--default-font-family-en);
+  font-size: rem(14);
+}

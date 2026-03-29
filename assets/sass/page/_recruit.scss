@@ -1,0 +1,100 @@
+@use "../global" as *;
+/* recruit
+========================================================================*/
+.recruit-section .wp-block-media-text.is-stacked-on-mobile > .wp-block-media-text__media {
+  @include media(max, lg-max) {
+    grid-row: 2 !important;
+  }
+}
+.recruit-section .wp-block-media-text.is-stacked-on-mobile > .wp-block-media-text__content {
+  @include media(max, lg-max) {
+    grid-row: 1 !important;
+  }
+}
+
+// .recruit-section .recruit-section__inner figure {
+//   opacity: 0;
+// }
+
+.recruit-section .recruit-section__subtitle-wrap {
+  position: relative;
+}
+
+.recruit-section .recruit-section__subtitle {
+  color: var(--color-sub-primary-50);
+  font-family: var(--default-font-family-en);
+  font-size: fluid-size(56, 108);
+  font-style: italic;
+  font-weight: var(--font-weight-700);
+  padding-top: 38px;
+  position: absolute;
+  text-transform: uppercase;
+  transform: translateY(-50%);
+  white-space: nowrap;
+}
+
+.recruit-section .recruit-section__title {
+  color: var(--default-color-main);
+  font-size: fluid-size(32, 48);
+  font-weight: var(--font-weight-700);
+}
+
+.recruit-section .recruit-section__lead {
+  color: var(--color-sub-primary-800);
+  font-size: fluid-size(16, 24);
+  font-weight: var(--font-weight-700);
+  line-height: var(--default-line-height);
+}
+
+.recruit-section--primary .recruit-section__title-wrap {
+  text-align: left;
+}
+
+.recruit-section--primary .recruit-section__subtitle {
+  left: 0;
+}
+
+.recruit-section--primary .recruit-section__body {
+  text-align: left;
+}
+
+.recruit-section--secondary .recruit-section__title-wrap {
+  text-align: right;
+}
+
+.recruit-section--secondary .recruit-section__subtitle {
+  right: 0;
+}
+
+.recruit-section--secondary .recruit-section__body {
+  text-align: right;
+}
+
+.recruit-section--tertiary .recruit-section__title-wrap {
+}
+
+.recruit-section--tertiary .recruit-section__button-wrap {
+  @include media(min, sm-min) {
+    margin-inline: auto;
+    max-width: 470px;
+  }
+}
+
+.recruit-section--tertiary .recruit-section__button-wrap.wp-block-group.is-stack {
+  @include media(max, sm-max) {
+    display: block;
+  }
+}
+
+.recruit-section--quaternary .recruit-section__title-wrap {
+  text-align: center;
+}
+
+.recruit-section--quaternary .recruit-section__subtitle {
+  right: 0;
+  left: 0;
+}
+
+.recruit-section--quaternary .recruit-section__body {
+  text-align: center;
+}

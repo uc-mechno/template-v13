@@ -1,0 +1,11 @@
+@use "../global" as *;
+/* beforeFooter
+========================================================================*/
+
+.w-beforeFooter {
+  margin-top: 0;
+}
+
+.c-widget + .c-widget {
+  margin-top: 0;
+}

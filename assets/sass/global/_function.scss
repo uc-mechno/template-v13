@@ -1,0 +1,421 @@
+@use 'variable' as *;
+
+@use 'sass:math';
+@use 'sass:map';
+@use 'sass:color';
+
+// ==========================================================================
+//  FUNCTION
+// ==========================================================================
+
+/// STRIP UNIT
+/// ==========================================================================
+/// @desc 数値から単位を取り除く関数
+/// @param {Number} $number - 単位を取り除く対象の数値
+/// @return {Number} 単位のない数値
+/// @see sass:math
+/// @example scss - 使用例
+///   $width: strip-unit(100px);
+///   .element {
+///     width: $width * 1%;
+///   }
+/// @example css - 生成されるCSS
+///   .element {
+///     width: 100%;
+///   }
+/// @example scss - 使用例（単位なしの場合）
+///   $opacity: strip-unit(0.5);
+///   .element {
+///     opacity: $opacity;
+///   }
+/// @example css - 生成されるCSS（単位なしの場合）
+///   .element {
+///     opacity: 0.5;
+///   }
+///
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
+  }
+  @return $number;
+}
+
+// DIVIDE ROOT
+// ==========================================================================
+/// @desc ルートのサイズを返す
+/// @param {Number} $px - 指定するピクセル値
+/// @param {Number} $parent [16] - 親要素のピクセル値（デフォルトは16）
+/// @return {Number} 計算された比率
+/// @see strip-unit
+/// @see sass:math
+/// @example scss - 使用例
+///   .element {
+///     font-size: divide-root(20px) * 1rem;
+///   }
+/// @example css - 生成されるCSS
+///   .element {
+///     font-size: 1.25rem;
+///   }
+/// @example scss - 使用例（親要素のサイズを指定）
+///   .element {
+///     font-size: divide-root(20px, 20px) * 1em;
+///   }
+/// @example css - 生成されるCSS（親要素のサイズを指定）
+///   .element {
+///     font-size: 1em;
+///   }
+///
+@function divide-root($px, $parent: 16) {
+  @return math.div(strip-unit($px), strip-unit($parent));
+}
+
+// Z INDEX
+// ==========================================================================
+/// @desc z-indexの値を$layer変数から取得する関数
+/// @param {String} $z-index - 取得したいz-indexのキー
+/// @return {Number} 指定されたキーに対応するz-index値
+/// @see $layer
+/// @example scss - 使用例
+///   .header {
+///     z-index: z-index(header);
+///   }
+///   .modal {
+///     z-index: z-index(modal);
+///   }
+/// @example css - 生成されるCSS
+///   .header {
+///     z-index: 100;
+///   }
+///   .modal {
+///     z-index: 200;
+///   }
+///
+@function z-index($z-index) {
+  @return map-get($layer, $z-index);
+}
+
+/// BREAKPOINTS
+/// ==========================================================================
+/// @desc - レークポイントの値を取得する関数
+/// @param {String} $size - 取得したいブレークポイントのサイズ名
+/// @return {Number} 指定されたサイズに対応するブレークポイントの値
+/// @see $breakpoints
+///
+/// @example scss - 使用例
+///   .example {
+///     width: bp(md);
+///   }
+///
+///   @media (min-width: breakpoints(lg)) {
+///     .example {
+///       width: 50%;
+///     }
+///   }
+///
+/// @example css - 生成されるCSS
+///   .example {
+///     width: 768px;
+///   }
+///
+///   @media (min-width: 1024px) {
+///     .example {
+///       width: 50%;
+///     }
+///   }
+///
+@function breakpoints($size) {
+  @return map-get($breakpoints, $size);
+}
+
+// EM
+// ==========================================================================
+/// @desc pxをemに変換する関数
+/// @param {Number} $px - 変換したいピクセル値
+/// @param {Number} $parent [16] - 親要素のフォントサイズ（デフォルトは16px）
+/// @return {Number} 変換されたem値
+/// @see strip-unit
+/// @see sass:math
+///
+/// @example scss - 使用例
+///   .element {
+///     font-size: em(20);
+///     margin-bottom: em(30, 20);
+///   }
+///
+/// @example css - 生成されるCSS
+///   .element {
+///     font-size: 1.25em;
+///     margin-bottom: 1.5em;
+///   }
+///
+/// @example scss - 親要素のサイズを指定する使用例
+///   .parent {
+///     font-size: 14px;
+///     .child {
+///       padding: em(16, 14);
+///     }
+///   }
+///
+/// @example css - 親要素のサイズを指定した場合の生成されるCSS
+///   .parent {
+///     font-size: 14px;
+///   }
+///   .parent .child {
+///     padding: 1.14286em;
+///   }
+///
+@function em($px, $parent: 16) {
+  @return math.div(strip-unit($px), strip-unit($parent)) * 1em;
+}
+
+// PX
+// ==========================================================================
+/// @desc emをpxに変換する関数
+/// @param {Number} $em - 指定するem値
+/// @param {Number} $parent [16] - 親要素のピクセル値（デフォルトは16）
+/// @return {Number} 変換されたpx値
+/// @see strip-unit
+///
+/// @example scss - 使用例
+///   .element {
+///     font-size: px(1.5);
+///   }
+///
+/// @example css - 生成されるCSS
+///   .element {
+///     font-size: 24px; // 1.5emが16pxの親要素に基づく場合
+///   }
+///
+/// @example scss - 使用例（親要素のサイズを指定）
+///   .element {
+///     font-size: px(1.2, 15);
+///   }
+///
+/// @example css - 生成されるCSS（親要素のサイズを指定）
+///   .element {
+///     font-size: 18px; // 1.2emが15pxの親要素に基づく場合
+///   }
+///
+@function px($em, $parent: 16) {
+  @return (strip-unit($em) * strip-unit($parent)) * 1px;
+}
+
+// REM
+// ==========================================================================
+/// @desc pxをremに変換する関数
+/// @param {Number} $px - 指定するピクセル値
+/// @param {Number} $parent [16] - 親要素のピクセル値（デフォルトは16）
+/// @return {Number} 変換されたrem値
+/// @see strip-unit
+/// @see sass:math
+///
+/// @example scss - 使用例
+///   .element {
+///     font-size: rem(20);
+///   }
+///
+/// @example css - 生成されるCSS
+///   .element {
+///     font-size: 1.25rem; // 20pxが16pxの親要素に基づく場合
+///   }
+///
+/// @example scss - 使用例（親要素のサイズを指定）
+///   .element {
+///     font-size: rem(20, 15);
+///   }
+///
+/// @example css - 生成されるCSS（親要素のサイズを指定）
+///   .element {
+///     font-size: 1.33333rem; // 20pxが15pxの親要素に基づく場合
+///   }
+///
+@function rem($px, $parent: 16) {
+  @return math.div(strip-unit($px), strip-unit($parent)) * 1rem;
+}
+
+// VW
+// ==========================================================================
+/// @desc pxをvwに変換する関数
+/// @param {Number} $window_width [768] - ウィンドウの幅
+/// @param {Number} $parent [16] - 親要素のピクセル値（デフォルトは16）
+/// @return {Number} 変換されたvw値
+/// @see strip-unit
+/// @see sass:math
+///
+/// @example scss - 使用例
+///   .element {
+///     width: vw(768);
+///   }
+///
+/// @example css - 生成されるCSS
+///   .element {
+///     width: 100vw; // 16pxの親要素に基づく場合
+///   }
+///
+/// @example scss - 使用例（親要素のサイズを指定）
+///   .element {
+///     width: vw(1024, 20);
+///   }
+///
+/// @example css - 生成されるCSS（親要素のサイズを指定）
+///   .element {
+///     width: 80vw; // 20pxの親要素に基づく場合
+///   }
+///
+@function vw($window_width: 768, $parent: 16) {
+  @return math.div(strip-unit($parent), strip-unit($window_width)) * 100vw;
+}
+
+// RESPONSIVE SIZE
+// ==========================================================================
+/// @desc 指定したサイズを基に、%またはvwなどの単位に変換する関数
+/// @param {Number} $size - 指定する画面幅
+/// @param {Number} $context [768] - 指定するピクセル値（デフォルトは768）
+/// @param {String} $unit [em] - 指定する単位（デフォルトはem）
+/// @return {String} 変換された値と単位
+/// @see strip-unit
+///
+/// @example scss - 使用例
+///   .element {
+///     width: responsive-size(10, 768, '%');
+///   }
+///
+/// @example css - 生成されるCSS
+///   .element {
+///     width: 1.3020833333%; // 10pxを768pxの基準で計算した場合
+///   }
+///
+/// @example scss - 使用例（vw単位）
+///   .element {
+///     width: responsive-size(10, 768, 'vw');
+///   }
+///
+/// @example css - 生成されるCSS（vw単位）
+///   .element {
+///     width: 1.3020833333vw; // 10pxを768pxの基準で計算した場合
+///   }
+///
+/// @example scss - 使用例（em単位）
+///   .element {
+///     font-size: responsive-size(10, 20, 'em');
+///   }
+///
+/// @example css - 生成されるCSS（em単位）
+///   .element {
+///     font-size: 0.5em; // 10pxを20pxの基準で計算した場合
+///   }
+///
+@function responsive-size($size, $context: 768, $unit: em) {
+  @if $unit == '%' {
+    @return #{math.div(strip-unit($size), strip-unit($context)) * 100}#{$unit};
+  } @else if $unit == 'vw' {
+    @return #{math.div(strip-unit($size), strip-unit($context)) * 100}#{$unit};
+  } @else {
+    @return #{math.div(strip-unit($size), strip-unit($context))}#{$unit};
+  }
+}
+
+// FLUID SIZE
+// ==========================================================================
+/// @desc clamp()を使用して可変のフォントサイズを生成する関数
+/// @param {Number} $min-size - 最小のフォントサイズ
+/// @param {Number} $max-size - 最大のフォントサイズ
+/// @param {String} $size ['lg-min'] - サイズのブレークポイント（デフォルトは'lg-min'）
+/// @return {String} clamp関数を使用した可変フォントサイズ
+/// @see clamp
+/// @see divide-root
+/// @see rem
+/// @see $breakpoints
+///
+/// @example scss - 使用例
+///   .fluid-size {
+///     font-size: fluid-size(24px, 60px);
+///   }
+///
+/// @example css - 生成されるCSS
+///   .fluid-size {
+///     font-size: clamp(1.5rem, -0.2088607595rem + 5.6962025316vw, 3.75rem);
+///   }
+///
+@function fluid-size($min-size, $max-size, $size: 'lg-min') {
+  $min-unit: rem($min-size);
+  $max-unit: rem($max-size);
+  $min-num: divide-root($min-size);
+  $max-num: divide-root($max-size);
+  $min-breakpoint: divide-root(map.get($breakpoints, 'xxxs-min'));
+
+  // サイズに応じたブレークポイントを取得するためのマップを作成
+  $breakpoint-map: (
+    'xxxl-min': map.get($breakpoints, 'xxxl-min'),
+    'xxl-min': map.get($breakpoints, 'xxl-min'),
+    'xl-min': map.get($breakpoints, 'xl-min'),
+    'md-min': map.get($breakpoints, 'md-min'),
+    'sm-min': map.get($breakpoints, 'sm-min'),
+    'xs-min': map.get($breakpoints, 'xs-min'),
+    'xss-min': map.get($breakpoints, 'xss-min'),
+    'lg-min': map.get($breakpoints, 'lg-min') // デフォルト
+  );
+
+  // 指定されたサイズに基づいてブレークポイントを取得
+  $max-breakpoint: divide-root(map.get($breakpoint-map, $size));
+
+  $slope: math.div(($max-num - $min-num), ($max-breakpoint - $min-breakpoint));
+  $calc-rem: ($min-breakpoint * -1 * $slope + $min-num) * 1rem;
+  $calc-vw: ($slope * 100) * 1vw;
+
+  @return clamp($min-unit, $calc-rem + $calc-vw, $max-unit);
+}
+
+// @function fluid-size($min-size, $max-size, $size: 'lg-min') {
+//   $min-unit: rem($min-size);
+//   $max-unit: rem($max-size);
+//   $min-num: divide-root($min-size);
+//   $max-num: divide-root($max-size);
+//   $min-breakpoint: divide-root(map.get($breakpoints, 'xxxs-min'));
+//   $max-breakpoint: if(
+//     $size == 'xxxl-min',
+//     divide-root(map.get($breakpoints, 'xxxl-min')),
+//     if(
+//       $size == 'xxl-min',
+//       divide-root(map.get($breakpoints, 'xxl-min')),
+//       if(
+//         $size == 'xl-min',
+//         divide-root(map.get($breakpoints, 'xl-min')),
+//         if(
+//           $size == 'md-min',
+//           divide-root(map.get($breakpoints, 'md-min')),
+//           if(
+//             $size == 'sm-min',
+//             divide-root(map.get($breakpoints, 'sm-min')),
+//             if(
+//               $size == 'xs-min',
+//               divide-root(map.get($breakpoints, 'xs-min')),
+//               if(
+//                 $size == 'xss-min',
+//                 divide-root(map.get($breakpoints, 'xss-min')),
+//                 divide-root(map.get($breakpoints, 'lg-min'))
+//               )
+//             )
+//           )
+//         )
+//       )
+//     )
+//   );
+//   $slope: math.div(($max-num - $min-num), ($max-breakpoint - $min-breakpoint));
+//   $calc-rem: ($min-breakpoint * -1 * $slope + $min-num) * 1rem;
+//   $calc-vw: ($slope * 100) * 1vw;
+//   @return clamp($min-unit, $calc-rem + $calc-vw, $max-unit);
+// }
+
+// @function fluid-size($min-size, $max-size, $size: 'lg-min') {
+//   $min-unit: rem($min-size);
+//   $max-unit: rem($max-size);
+//   $min-num: divide-root($min-size);
+//   $max-num: divide-root($max-size);
+//   $min-breakpoint: divide-root(map.get($breakpoints, 'xxs-min'));
+//   $max-breakpoint: if($size == 'xxl-min', divide-root(map.get($breakpoints, 'xxl-min')), if($size == 'xl-min', divide-root(map.get($breakpoints, 'xl-min')), if($size == 'md-min', divide-root(map.get($breakpoints, 'md-min')), divide-root(map.get($breakpoints, 'lg-min')))));
+//   $slope: math.div(($max-num - $min-num), ($max-breakpoint - $min-breakpoint));
+//   $calc-rem: ($min-breakpoint * -1 * $slope + $min-num) * 1rem;
+//   $calc-vw: ($slope * 100) * 1vw;
+//   @return clamp($min-unit, $calc-rem + $calc-vw, $max-unit);
+// }

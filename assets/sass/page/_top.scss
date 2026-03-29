@@ -1,0 +1,25 @@
+@use "../global" as *;
+/* top
+========================================================================*/
+.p-mainVisual__textLayer {
+  align-items: flex-end;
+  bottom: 48px;
+  flex-direction: initial;
+  justify-content: initial;
+  top: initial;
+}
+
+.catchCopy {
+  gap: fluid-size(24, 40);
+}
+
+.catchCopy__background {
+  background: #fff;
+  font-size: fluid-size(32, 48);
+  font-weight: var(--font-weight-700);
+  line-height: var(--default-line-height);
+  margin-block: var(--leading-trim) !important;
+  padding: 0 fluid-size(16, 24);
+  white-space: nowrap;
+  width: fit-content;
+}

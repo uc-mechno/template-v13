@@ -1,0 +1,11 @@
+*.js
+*.scss
+*.html
+*.php
+*.twig
+*.yml
+*.yaml
+*.json
+*.md
+*.txt
+*.csv

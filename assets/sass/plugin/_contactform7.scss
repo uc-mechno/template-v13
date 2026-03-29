@@ -1,0 +1,366 @@
+@use "../global" as *;
+
+/* contact form 7
+========================================================================*/
+
+table.inquiry th,
+table.inquiry td {
+  border: 0;
+  display: block;
+  width: 100%;
+}
+
+table.inquiry th {
+  line-height: 1.5;
+  padding: em(24) 0 0 0;
+}
+
+table.inquiry td {
+  line-height: 1.5;
+  padding: em(8) 0 0 0;
+}
+
+table.entry td {
+  line-height: 1.5;
+}
+
+.inquiry .pcdate {
+  @include media(max, lg-max) {
+    display: none;
+  }
+}
+.inquiry .spdate {
+  @include media(min, lg-min) {
+    display: none;
+  }
+}
+
+.inquiry .wpcf7-date.dateform {
+  width: 25%;
+}
+
+// 自動入力されるPタグを無効にする
+.inquiry p {
+  display: inline;
+}
+
+table.inquiry {
+  line-height: 1.2;
+  vertical-align: middle;
+}
+
+.inquiry tr {
+  border: 0!important;
+}
+
+.inquiry th {
+  background-color: initial;
+  border: solid 1px #d7d7d7;
+  color: #444;
+  font-size: 14px;
+  padding: 1em .5em;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.inquiry .haveto,
+.inquiry .any {
+  background: #ff9393;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: normal;
+  margin-right: 5px;
+  padding: 5px;
+}
+
+.inquiry .any {
+  background: #93c9ff;
+}
+
+.inquiry .br,
+.entry .br {
+  display: inline-block;
+  margin-left: 37.61px + 5px;
+}
+
+.inquiry td {
+  border: solid 1px #d7d7d7;
+  font-size: 13px;
+}
+
+.inquiry .wpcf7-form-control {
+  width: 100%;
+}
+
+.inquiry input,
+.inquiry select,
+.inquiry textarea {
+  background: #eff1f5;
+  border: none;
+  margin: 5px 0;
+  padding: .7em;
+}
+.inquiry textarea {
+  padding-bottom: 10em;
+}
+
+.inquiry .wpcf7-list-item-label,
+.inquiry .wpcf7-checkbox,
+input[type=checkbox],
+input[type=radio] {
+  vertical-align: middle;
+}
+.inquiry .wpcf7-list-item-label {
+  padding: 0 5px 0 2px;
+}
+
+.inquiry .verticallist {
+  display: inline-grid;
+}
+
+
+.inquiry .screen-reader-response {
+  display: none;
+}
+
+.inquiry .wpcf7-not-valid-tip {
+  color: var(--color-red);
+}
+
+
+.privacy {
+  font-size: 14px;
+  margin: 0 0 0 1em;
+  padding-bottom: 1em;
+}
+
+.link {
+  @include hover() {
+    text-decoration: none;
+  }
+
+  text-decoration: underline;
+}
+
+.wpcf7-list-item {
+  font-size: 14px;
+}
+
+.wpcf7-submit {
+  @include media(max, lg-max) {
+    width: 100%;
+  }
+  @include hover() {
+    opacity: .9;
+    transition: .3s;
+  }
+
+  background: var(--default-color-main);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px auto;
+  margin-top: 24px;
+  padding: 1em 0;
+  width: 80%;
+}
+
+.wpcf7 .ajax-loader {
+  display: none !important;
+}
+
+.confirm-button {
+  text-align: center;
+}
+
+.confirm-button .wpcf7-previous,
+.confirm-button .wpcf7-submit {
+  display: inline-block;
+}
+
+.confirm-button .wpcf7-previous {
+  @include media(max, lg-max) {
+    width: 30%;
+  }
+
+  background: var(--color-gray-300);
+  border-radius: 4px;
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 1em 0;
+  width: 100px;
+}
+
+.confirm-button .wpcf7-submit {
+  @include media(max, lg-max) {
+    width: 60%;
+  }
+
+  font-size: 16px;
+  margin-left: 24px;
+  padding: 1em 0;
+  width: 350px;
+}
+
+
+/* Contact Form7スマホ・タブレット用カスタマイズ */
+
+/* テーブルの見出しとフォーム */
+@include media(max, lg-max) {
+  table.entry  th,
+  table.entry  td {
+    border: 0;
+    display: block;
+    padding: 1em 0!important;
+    width: 100%;
+  }
+
+  /* 送信ボタン */
+  .entry input.wpcf7-submit {
+    margin-bottom: 30px;
+    width: 100%;
+  }
+}
+
+
+/* 日付タグ上のテキストをPCとスマホで変更 */
+@include media(max, lg-max) {
+  .entry .pcdate {
+    display: none;
+  }
+}
+
+@include media(min, lg-min) {
+  .entry .spdate {
+    display: none;
+  }
+  /* 日付タグの幅を調整 */
+  .entry .wpcf7-date.dateform {
+    width: 25%;
+  }
+}
+
+/* Contact Form7全体カスタマイズ */
+
+/* 自動入力されるPタグを無効にする */
+.entry p {
+  display: inline;
+}
+
+/*テーブル下に余白.枠線・テキストの行間 */
+table.entry {
+  border: solid 1px #d7d7d7;
+  line-height: 1.2;
+  margin-bottom: 30px;
+  vertical-align: middle;
+}
+
+/* テーブルの行 */
+.entry tr {
+  border: 0!important;
+}
+
+/* テーブルの見出し側 */
+.entry th {
+  background: #efefef;
+  border: solid 1px #d7d7d7;
+  color: #444;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 1em .5em;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 0;
+}
+
+/* 必須と任意タグ */
+.entry .haveto,
+.entry .any {
+  background: #ff9393;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: normal;
+  margin-right: 5px;
+  padding: 5px;
+}
+
+/* 任意タグの背景カラー */
+.entry .any {
+  background: #93c9ff;
+}
+
+/* テーブルフォーム側 */
+.entry td {
+  border: solid 1px #d7d7d7;
+  font-size: 13px;
+}
+
+/* 入力エリア幅最大 */
+.entry .wpcf7-form-control {
+  width: 100%;
+}
+
+/* フォーム入力欄の余白・背景カラー・枠線消す指定 */
+.entry input,
+.entry select,
+.entry textarea {
+  background: #eff1f5;
+  border: none;
+  margin: 5px 0;
+  padding: .7em;
+}
+// .entry textarea {
+//   padding-bottom: 10em;
+// }
+
+/* チェックボックスとラジオボタンの位置調整 */
+.entry .wpcf7-list-item-label,
+.entry .wpcf7-checkbox,
+input[type=checkbox],
+input[type=radio] {
+  vertical-align: middle;
+}
+.entry .wpcf7-list-item-label {
+  padding: 0 5px 0 2px;
+}
+/*ラジオボタンを縦並び指定*/
+.entry .verticallist {
+  display: inline-grid;
+}
+
+/* 送信ボタンのデザイン */
+.entry .wpcf7-submit {
+  background: #09b555;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px auto;
+  padding: 1em 0;
+  width: 80%;
+}
+
+/* 送信ボタンマウスホバー時 */
+.entry .wpcf7-submit:hover {
+  opacity: .9;
+  transition: .3s;
+}
+
+/* フォーム上部に表示されるエラーメッセージを非表示 */
+.entry .screen-reader-response {
+  display: none;
+}
+
+/* フォーム内エラーメッセージを赤色に指定 */
+.entry .wpcf7-not-valid-tip {
+  color: #e92323;
+}

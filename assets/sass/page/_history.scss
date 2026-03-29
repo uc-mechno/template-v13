@@ -1,0 +1,23 @@
+@use "../global" as *;
+/* history
+========================================================================*/
+
+.history-history {
+}
+
+.history-history__table tr th {
+  @include media(max, lg-max) {
+    border-bottom: none;
+    padding-bottom: .5em;
+  }
+
+  padding: 1.5em .75em;
+}
+.history-history__table tr td {
+  @include media(max, lg-max) {
+    border-top: none;
+    padding-top: .5em;
+  }
+
+  padding: 1.5em .75em;
+}

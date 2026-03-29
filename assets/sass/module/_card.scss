@@ -1,0 +1,19 @@
+@use "../global" as *;
+
+/* card
+========================================================================*/
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  :is(.card__body, .wp-block-group__inner-container){
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+  }
+}
+
+.card__text {
+  flex-grow: 1;
+}

@@ -1,0 +1,251 @@
+@use "variable" as *;
+/*========================================================================
+# CUSTOM PROPERTIES
+========================================================================*/
+:root {
+  /* Color
+------------------------------------------------------------------------*/
+  /* --- color --- */
+  --color-black: #{$color-black};
+  --color-white: #{$color-white};
+  --color-blue: #{$color-blue};
+  --color-sky-blue: #{$color-sky-blue};
+  --color-red: #{$color-red};
+  --color-yellow: #{$color-yellow};
+  --color-green: #{$color-green};
+
+  /* --- color brands --- */
+  --color-twitter: #{$color-twitter};
+  --color-facebook: #{$color-facebook};
+  --color-line: #{$color-line};
+  --color-youtube: #{$color-youtube};
+  --color-instagram: #{$color-instagram};
+
+  /* --- color accent --- */
+  --color-accent-primary-100: #{$color-accent-primary-100};
+  --color-accent-primary-200: #{$color-accent-primary-200};
+  --color-accent-primary-300: #{$color-accent-primary-300};
+  --color-accent-primary-400: #{$color-accent-primary-400};
+  --color-accent-primary-500: #{$color-accent-primary-500};
+  --color-accent-primary-600: #{$color-accent-primary-600};
+  --color-accent-primary-700: #{$color-accent-primary-700};
+  --color-accent-primary-800: #{$color-accent-primary-800};
+  --color-accent-primary-900: #{$color-accent-primary-900};
+
+  --color-accent-secondary-100: #{$color-accent-secondary-100};
+  --color-accent-secondary-200: #{$color-accent-secondary-200};
+  --color-accent-secondary-300: #{$color-accent-secondary-300};
+  --color-accent-secondary-400: #{$color-accent-secondary-400};
+  --color-accent-secondary-500: #{$color-accent-secondary-500};
+  --color-accent-secondary-600: #{$color-accent-secondary-600};
+  --color-accent-secondary-700: #{$color-accent-secondary-700};
+  --color-accent-secondary-800: #{$color-accent-secondary-800};
+  --color-accent-secondary-900: #{$color-accent-secondary-900};
+
+  /* --- color other --- */
+  --color-other-danger: #{$color-other-danger};
+  --color-other-warning: #{$color-other-warning};
+  --color-other-info: #{$color-other-info};
+  --color-other-important: #{$color-other-important};
+
+  /* --- color gray --- */
+  --color-gray-50:  #{$color-gray-50};
+  --color-gray-100: #{$color-gray-100};
+  --color-gray-200: #{$color-gray-200};
+  --color-gray-300: #{$color-gray-300};
+  --color-gray-400: #{$color-gray-400};
+  --color-gray-500: #{$color-gray-500};
+  --color-gray-600: #{$color-gray-600};
+  --color-gray-700: #{$color-gray-700};
+  --color-gray-800: #{$color-gray-800};
+  --color-gray-900: #{$color-gray-900};
+
+  /* --- color base --- */
+  --color-base-primary: #{$color-base-primary};
+  --color-base-secondary: #{$color-base-secondary};
+  //--color-base-tertiary: #{$color-base-tertiary};
+
+  /* --- color main --- */
+--color-main-primary-100:#{$color-main-primary-100};
+--color-main-primary-200:#{$color-main-primary-200};
+--color-main-primary-300:#{$color-main-primary-300};
+--color-main-primary-400:#{$color-main-primary-400};
+--color-main-primary-500:#{$color-main-primary-500};
+--color-main-primary-600:#{$color-main-primary-600};
+--color-main-primary-700:#{$color-main-primary-700};
+--color-main-primary-800:#{$color-main-primary-800};
+--color-main-primary-900:#{$color-main-primary-900};
+
+/* --- color sub --- */
+--color-sub-primary-50: #{$color-sub-primary-50};
+--color-sub-primary-100: #{$color-sub-primary-100};
+--color-sub-primary-200: #{$color-sub-primary-200};
+--color-sub-primary-300: #{$color-sub-primary-300};
+--color-sub-primary-400: #{$color-sub-primary-400};
+--color-sub-primary-500: #{$color-sub-primary-500};
+--color-sub-primary-600: #{$color-sub-primary-600};
+--color-sub-primary-700: #{$color-sub-primary-700};
+--color-sub-primary-800: #{$color-sub-primary-800};
+--color-sub-primary-900: #{$color-sub-primary-900};
+
+/* --- oklch --- */
+--oklch-primary-light: #{$oklch-primary-light};
+--oklch-primary-dark: #{$oklch-primary-dark};
+--oklch-secondary-light: #{$oklch-secondary-light};
+--oklch-secondary-dark: #{$oklch-secondary-dark};
+--oklch-tertiary-light: #{$oklch-tertiary-light};
+--oklch-tertiary-dark: #{$oklch-tertiary-dark};
+/* Typography
+------------------------------------------------------------------------*/
+/* --- font-weight --- */
+--font-weight-100: #{$font-weight-100};
+--font-weight-200: #{$font-weight-200};
+--font-weight-300: #{$font-weight-300};
+--font-weight-400: #{$font-weight-400};
+--font-weight-500: #{$font-weight-500};
+--font-weight-600: #{$font-weight-600};
+--font-weight-700: #{$font-weight-700};
+--font-weight-800: #{$font-weight-800};
+--font-weight-900: #{$font-weight-900};
+
+/* --- font-size --- */
+--font-size-none: #{$font-size-none};
+--font-size-xs: #{$font-size-xs};
+--font-size-sm: #{$font-size-sm};
+--font-size-md: #{$font-size-md};
+--font-size-lg: #{$font-size-lg};
+--font-size-xl: #{$font-size-xl};
+
+/* --- line-height --- */
+--line-height-none: #{$line-height-none};
+--line-height-sm: #{$line-height-sm};
+--line-height-md: #{$line-height-md};
+--line-height-lg: #{$line-height-lg};
+--line-height-xl: #{$line-height-xl};
+
+//* --- letter-spacing --- */
+--letter-spacing-none: #{$letter-spacing-none};
+--letter-spacing-sm: #{$letter-spacing-sm};
+--letter-spacing-md: #{$letter-spacing-md};
+--letter-spacing-lg: #{$letter-spacing-lg};
+--letter-spacing-xl: #{$letter-spacing-xl};
+
+/* --- font-family --- */
+--font-family-ja: #{$font-family-ja};
+--font-family-en: #{$font-family-en};
+/* EFFECT
+------------------------------------------------------------------------*/
+/* --- gradation --- */
+--gradation-primary: #{$gradation-primary};
+--gradation-secondary: #{$gradation-secondary};
+--gradation-tertiary: #{$gradation-tertiary};
+
+/* --- drop shadow --- */
+--drop-shadow-lv1: #{$drop-shadow-lv1};
+--drop-shadow-lv2: #{$drop-shadow-lv2};
+--drop-shadow-lv3: #{$drop-shadow-lv3};
+--drop-shadow-lv4: #{$drop-shadow-lv4};
+--drop-shadow-lv5: #{$drop-shadow-lv5};
+
+/* --- border-radius --- */
+--border-radius-lv1: #{$border-radius-lv1};
+--border-radius-lv2: #{$border-radius-lv2};
+--border-radius-lv3: #{$border-radius-lv3};
+--border-radius-lv4: #{$border-radius-lv4};
+--border-radius-lv5: #{$border-radius-lv5};
+--border-radius-circle: #{$border-radius-circle};
+
+/* --- opacity --- */
+--opacity-lv1: #{$opacity-lv1};
+--opacity-lv2: #{$opacity-lv2};
+--opacity-lv3: #{$opacity-lv3};
+--opacity-lv4: #{$opacity-lv4};
+--opacity-lv5: #{$opacity-lv5};
+
+/* Animations
+------------------------------------------------------------------------*/
+--duration-lv1: #{$duration-lv1};
+--duration-lv2: #{$duration-lv2};
+--duration-lv3: #{$duration-lv3};
+--duration-lv4: #{$duration-lv4};
+--duration-lv5: #{$duration-lv5};
+
+/* Layout
+------------------------------------------------------------------------*/
+/* --- width ---  */
+--layout-width-canvas: #{$layout-width-canvas};
+--layout-width-inner: #{$layout-width-inner};
+--layout-width-tab: #{$layout-width-tab};
+--layout-width-sp: #{$layout-width-sp};
+
+/* --- spacing --- */
+--space-xxs: #{$space-xxs};
+--space-xs: #{$space-xs};
+--space-sm: #{$space-sm};
+--space-md: #{$space-md};
+--space-lg: #{$space-lg};
+--space-xl: #{$space-xl};
+--space-xxl: #{$space-xxl};
+/* Breakpoint
+------------------------------------------------------------------------*/
+--breakpoints-xxxs-min: #{map-get($breakpoints, xxxs-min)};
+--breakpoints-xxxs-max: #{map-get($breakpoints, xxxs-max)};
+--breakpoints-xxs-min: #{map-get($breakpoints, xxs-min)};
+--breakpoints-xxs-max: #{map-get($breakpoints, xxs-max)};
+--breakpoints-xs-min: #{map-get($breakpoints, xs-min)};
+--breakpoints-xs-max: #{map-get($breakpoints, xs-max)};
+--breakpoints-sm-min: #{map-get($breakpoints, sm-min)};
+--breakpoints-sm-max: #{map-get($breakpoints, sm-max)};
+--breakpoints-md-min: #{map-get($breakpoints, md-min)};
+--breakpoints-md-max: #{map-get($breakpoints, md-max)};
+--breakpoints-lg-min: #{map-get($breakpoints, lg-min)};
+--breakpoints-lg-max: #{map-get($breakpoints, lg-max)};
+--breakpoints-xl-min: #{map-get($breakpoints, xl-min)};
+--breakpoints-xl-max: #{map-get($breakpoints, xl-max)};
+--breakpoints-xxl-min: #{map-get($breakpoints, xxl-min)};
+--breakpoints-xxl-max: #{map-get($breakpoints, xxl-max)};
+--breakpoints-xxxl-min: #{map-get($breakpoints, xxxl-min)};
+--breakpoints-xxxl-max: #{map-get($breakpoints, xxxl-max)};
+
+/* Layer
+------------------------------------------------------------------------*/
+--layer-modal: #{map-get($layer, modal)};
+--layer-drawer: #{map-get($layer, drawer)};
+--layer-floating: #{map-get($layer, floating)};
+
+/* Default
+------------------------------------------------------------------------*/
+/* --- default color --- */
+--default-color-base: var(--color-base-primary);
+--default-color-main: var(--color-main-primary-500);
+--default-color-accent: : var(--color-accent-primary-500);
+
+/* --- default font --- */
+--default-font-size-pc:var(--font-size-md);
+--default-font-size-sp:var(--font-size-sm);
+--default-font-weight: var(--font-weight-500);
+--default-line-height: var(--line-height-md);
+--default-letter-spacing: var(--letter-spacing-md);
+--default-font-family-ja: var(--font-family-ja);
+--default-font-family-en: var(--font-family-en);
+
+/* --- default effect --- */
+--default-drop-shadow: var(--drop-shadow-lv3);
+--default-border-radius: var(--border-radius-circle);
+--default-opacity: var(--opacity-lv3);
+
+/* --- default animations --- */
+--default-duration: var(--duration-lv3);
+
+
+/* Leading trim
+------------------------------------------------------------------------*/
+/* --- leading-trim --- */
+--leading-trim: calc((1em - 1lh) / 2);
+}
+
+@supports not (top: 1lh) {
+  :root {
+    --leading-trim: 0px;
+  }
+}

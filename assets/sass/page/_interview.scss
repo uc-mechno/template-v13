@@ -1,0 +1,37 @@
+@use "../global" as *;
+/* interview
+========================================================================*/
+
+$step-number-default-width: 46px;
+$step-number-default-left: 23px;
+$step-number-width: 80px;
+$step-number-space: 16px;
+
+.interview-step {
+
+}
+.interview-step__inner {
+
+}
+.interview-step__step {
+
+}
+.interview-step__item {
+  padding-left: $step-number-width + $step-number-space;
+  &::before {
+    border-left: 1px solid var(--color_border);
+    left: $step-number-default-left + $step-number-space;
+  }
+}
+.interview-step__item .swell-block-step__number {
+  border-radius: 30px;
+  width: $step-number-width;
+
+  &::after {
+    font-size: rem(15);
+  }
+}
+
+.interview-step__item .swell-block-step__title {
+
+}

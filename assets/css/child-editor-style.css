@@ -1,0 +1,42 @@
+@import url("child.css");
+.footer-nav .footer-nav__item a {
+  color: initial;
+}
+
+.swell-block-faq__item {
+  opacity: 1;
+}
+
+.card-animation__item {
+  opacity: 1;
+}
+
+.box-menu-animation__item {
+  opacity: 1;
+}
+
+.recruit-company-history__item {
+  opacity: 1;
+}
+
+.recruit-info-flow__item {
+  opacity: 1;
+}
+
+.recruit-company-history__item:before {
+  opacity: 1;
+}
+
+.recruit-info-flow__item:before {
+  opacity: 1;
+}
+
+:where(.is-fadeInTrigger, .is-fadeInFigureTrigger figure) {
+  opacity: 1;
+}
+
+.is-style-button-move a {
+  background: var(--color-sub-primary-800) !important;
+  border: none !important;
+  color: var(--color-white) !important;
+}/*# sourceMappingURL=child-editor-style.css.map */

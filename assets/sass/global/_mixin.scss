@@ -1,0 +1,196 @@
+@use "variable" as *;
+
+// ==========================================================================
+//  Mixin
+// ==========================================================================
+
+// MEDIA
+// ==========================================================================
+/// @desc メディアクエリを挿入します。
+/// @param {String} $textype - クエリのタイプ（'min'、'max'、または'between'）
+/// @param {String} $bp1 - 最初のブレークポイント
+/// @param {String} $bp2 [0] - 2番目のブレークポイント（'between'タイプの場合に使用）
+/// @see $breakpoints
+/// @example scss - 使用例
+///   .element {
+///     @include media(min, md) {
+///       width: 50%;
+///     }
+///   }
+/// @example css - 生成されるCSS
+///   @media screen and (min-width: 768px), print {
+///     .element {
+///       width: 50%;
+///     }
+///   }
+/// @error 引数が間違っています。正しい引数を設定してください。
+///
+@mixin media($textype, $bp1, $bp2: 0) {
+
+  @if ($textype == min) {
+
+    @media screen and (min-width: #{map-get($breakpoints, $bp1)}), print {
+      @content;
+    }
+  }
+
+  @else if ($textype == max) {
+
+    // @media screen and (max-width: #{map-get($breakpoints, $bp1) - .02px })
+    @media screen and (max-width: #{map-get($breakpoints, $bp1)}) {
+      @content;
+    }
+  }
+
+  @else if ($textype == between) {
+
+    // @media screen and (min-width: #{map-get($breakpoints, $bp1)}), print and (max-width: #{map-get($breakpoints, $bp2) - .02px })
+    @media screen and (min-width: #{map-get($breakpoints, $bp1)}), print and (max-width: #{map-get($breakpoints, $bp2)}) {
+      @content;
+    }
+  }
+
+  @else {
+    @error "引数が間違っています。" + "正しい引数を設定してください。";
+  }
+}
+
+/// CONTAINER QUERY
+/// ==========================================================================
+/// @desc コンテナクエリを生成するミックスイン
+/// @param {String} $name - コンテナ名
+/// @param {String} $bp1 - ブレークポイント
+/// @param {String} $rule [max-width] - クエリのルール（'max-width'または'min-width'）
+/// @see $breakpoints
+/// @example scss - 使用例
+///   .container {
+///     @include container-query(my-container, md) {
+///       width: 50%;
+///     }
+///   }
+/// @example css - 生成されるCSS
+///   @container my-container (max-width: 768px) {
+///     .container {
+///       width: 50%;
+///     }
+///   }
+/// @error 引数が間違っています。正しい引数を設定してください。
+///
+@mixin container-query($name, $bp1, $rule: max-width) {
+  @if $rule == max-width {
+    @container #{$name} (max-width: #{map-get($breakpoints, $bp1)}) {
+      @content;
+    }
+  } @else if $rule == min-width {
+    @container #{$name} (min-width: #{map-get($breakpoints, $bp1)}) {
+      @content;
+    }
+  } @else {
+    @error "引数が間違っています。" + "正しい引数を設定してください。";
+  }
+}
+
+/// HOVER
+/// ==========================================================================
+/// @desc ホバー時のスタイルを適用するミックスイン
+/// @param {Boolean} $disabled [false] - ホバーの無効化フラグ
+/// @example scss - 使用例（通常のホバー）
+///   .element {
+///     @include hover() {
+///       color: blue;
+///     }
+///   }
+/// @example scss - 使用例（ホバー無効化）
+///   .element {
+///     @include hover(true) {
+///       color: blue;
+///     }
+///   }
+/// @example css - 生成されるCSS（通常のホバー）
+///   @media (hover: hover) and (pointer: fine) {
+///     .element:hover {
+///       color: blue;
+///     }
+///   }
+/// @example css - 生成されるCSS（ホバー無効化）
+///   .element:hover {
+///     color: blue;
+///   }
+/// @error 引数が間違っています。正しい引数を設定してください。
+///
+@mixin hover($disabled: false) {
+  @if ($disabled == true) {
+    &:hover {
+      @content;
+    }
+  } @else if ($disabled == false) {
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        @content;
+      }
+    }
+  } @else {
+    @error "引数が間違っています。" + "正しい引数を設定してください。";
+  }
+}
+
+// FOUCS
+// ==========================================================================
+/// @desc フォーカス時のスタイルを適用するミックスイン
+/// @example scss - 使用例
+///   .element {
+///     @include focus {
+///       outline: 2px solid blue;
+///     }
+///   }
+/// @example css - 生成されるCSS
+///   .element:focus {
+///     outline: 2px solid blue;
+///   }
+///
+@mixin focus {
+  &:focus {
+    @content;
+  }
+}
+
+// ラインハイトの上下の余白を相殺
+// LINE HEIGHT
+// ==========================================================================
+/// @desc ラインハイトの上下の余白を相殺するミックスイン
+/// @param {Number} $line-height - ラインハイトの値
+/// @see https://moshashugyo.com/media/line-height-space
+/// @example scss - 使用例
+///   .element {
+///     @include lh(1.5);
+///   }
+/// @example css - 生成されるCSS
+///   .element::before,
+///   .element::after {
+///     content: '';
+///     display: block;
+///     width: 0;
+///     height: 0;
+///   }
+///   .element::before {
+///     margin-top: calc((1 - 1.5) * 0.5em);
+///   }
+///   .element::after {
+///     margin-bottom: calc((1 - 1.5) * 0.5em);
+///   }
+///
+@mixin line-height($line-height) {
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+  }
+  &::before {
+    margin-top: calc((1 - #{$line-height}) * 0.5em);
+  }
+  &::after {
+    margin-bottom: calc((1 - #{$line-height}) * 0.5em);
+  }
+}

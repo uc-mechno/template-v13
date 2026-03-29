@@ -1,0 +1,19 @@
+@use "../global" as *;
+/* drop-shadow
+========================================================================*/
+
+.u-drop-shadow-vl1 {
+  filter: drop-shadow(var(--drop-shadow-lv1)) $important;
+}
+.u-drop-shadow-vl2 {
+  filter: drop-shadow(var(--drop-shadow-lv2)) $important;
+}
+.u-drop-shadow-vl3 {
+  filter: drop-shadow(var(--drop-shadow-lv3)) $important;
+}
+.u-drop-shadow-vl4 {
+  filter: drop-shadow(var(--drop-shadow-lv4)) $important;
+}
+.u-drop-shadow-vl5 {
+  filter: drop-shadow(var(--drop-shadow-lv5)) $important;
+}

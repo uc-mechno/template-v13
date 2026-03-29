@@ -1,0 +1,269 @@
+@use "sass:math";
+@use 'sass:map';
+
+// Default
+// ==========================================================================
+
+// Color
+// ==========================================================================
+// --- color ---
+$color-black: #000 !default;
+$color-white: #fff !default;
+$color-blue: #33f !default;
+$color-sky-blue: #12a4ff !default;
+$color-red: #c90926 !default;
+$color-pink: #c71a63 !default;
+$color-yellow: #f2edca !default;
+$color-green: #417967 !default;
+
+// --- color brands---
+$color-twitter: #1da1f2 !default;
+$color-facebook: #3c5a99 !default;
+$color-line: #00b900 !default;
+$color-youtube: #da1725 !default;
+$color-instagram: #da1725 !default;
+
+// --- color accent ---
+$color-accent-primary-100: #8D650A !default;
+$color-accent-primary-200: #A5760C !default;
+$color-accent-primary-300: #BC860E !default;
+$color-accent-primary-400: #D4970F !default;
+$color-accent-primary-500: #EBA811 !default;
+$color-accent-primary-600: #EDB129 !default;
+$color-accent-primary-700: #EFB941 !default;
+$color-accent-primary-800: #F1C258 !default;
+$color-accent-primary-900: #F3CB70 !default;
+
+$color-accent-secondary-100: #620F07 !default;
+$color-accent-secondary-200: #721208 !default;
+$color-accent-secondary-300: #821409 !default;
+$color-accent-secondary-400: #93170A !default;
+$color-accent-secondary-500: #A3190B !default;
+$color-accent-secondary-600: #AC3023 !default;
+$color-accent-secondary-700: #B5473C !default;
+$color-accent-secondary-800: #BF5E54 !default;
+$color-accent-secondary-900: #C8756D !default;
+
+// --- color other  ---
+$color-other-danger: red !default;
+$color-other-warning: #f5ba4e !default;
+$color-other-info: #4a90b9 !default;
+$color-other-important: #d51313 !default;
+
+// --- color gray ---
+$color-gray-50: #F2F2F2 !default;
+$color-gray-100: #D9D9D9 !default;
+$color-gray-200: #CCCCCC !default;
+$color-gray-300: #B2B2B2 !default;
+$color-gray-400: #999999 !default;
+$color-gray-500: #7F7F7F !default;
+$color-gray-600: #666666 !default;
+$color-gray-700: #4C4C4C !default;
+$color-gray-800: #333333 !default;
+$color-gray-900: #191919 !default;
+
+// --- color base ---
+$color-base-primary: #ffffff !default;
+$color-base-secondary: #f4f5f5 !default;
+//$color-base-tertiary: #d3d4d8 !default;
+
+// --- color main ---
+$color-main-primary-900: #072F61 !default;
+$color-main-primary-800: #083771 !default;
+$color-main-primary-700: #093E82 !default;
+$color-main-primary-600: #0A4692 !default;
+$color-main-primary-500: #0b4ea2 !default;
+$color-main-primary-400: #2360AB !default;
+$color-main-primary-300: #3C71B5 !default;
+$color-main-primary-200: #5483be !default;
+$color-main-primary-100: #6d95c7 !default;
+
+// --- color sub ---
+$color-sub-primary-900: #131921 !default;
+$color-sub-primary-800: #1F2A37 !default;
+$color-sub-primary-700: #353F4B !default;
+$color-sub-primary-600: #4C555F !default;
+$color-sub-primary-500: #626a73 !default;
+$color-sub-primary-400: #797f87 !default;
+$color-sub-primary-300: #8f959b !default;
+$color-sub-primary-200: #a5aaaf !default;
+$color-sub-primary-100: #bcbfc3 !default;
+$color-sub-primary-50: #D7D8DB !default;
+
+// --- oklch ---
+$oklch-primary-light: oklch(60.2% 0.147 244.86);
+$oklch-primary-dark: oklch(43.99% 0.149 257.17);
+$oklch-secondary-light: oklch(83.86% 0.169 84.26);
+$oklch-secondary-dark: oklch(70.37% 0.149 72.46);
+$oklch-tertiary-light: oklch(55.31% 0.21 30.44);
+$oklch-tertiary-dark: oklch(40.87% 0.153 30.33);
+
+// Typography
+// ==========================================================================
+
+// --- font-weight ---
+$font-weight-100: 100 !default;
+$font-weight-200: 200 !default;
+$font-weight-300: 300 !default;
+$font-weight-400: 400 !default;
+$font-weight-500: 500 !default;
+$font-weight-600: 600 !default;
+$font-weight-700: 700 !default;
+$font-weight-800: 800 !default;
+$font-weight-900: 900 !default;
+
+// --- font-size ---
+$font-size-none: 10px !default;
+$font-size-xs: 12px !default;
+$font-size-sm: 14px !default;
+$font-size-md: 16px !default;
+$font-size-lg: 18px !default;
+$font-size-xl: 20px !default;
+
+// --- line-height ---
+$line-height-none: 1 !default;
+$line-height-sm: 1.25 !default;
+$line-height-md: 1.6 !default;
+$line-height-lg: 1.75 !default;
+$line-height-xl: 2 !default;
+
+// --- letter-spacing ---
+$letter-spacing-none: 0 !default;
+$letter-spacing-sm: 0.025em !default;
+$letter-spacing-md: 0.05em !default;
+$letter-spacing-lg: 0.075em !default;
+$letter-spacing-xl: 0.1em !default;
+
+// --- font-family ---
+$font-family-ja: "Noto Sans JP", sans-serif !default;
+$font-family-en: "Poppins", system-ui !default;
+
+// EFFECT
+// ==========================================================================
+
+// --- gradation ---
+$gradation-primary: linear-gradient(90deg, $oklch-primary-light 0%, $oklch-primary-dark 100%) !default;
+$gradation-secondary: linear-gradient(90deg, $oklch-secondary-light 0%, $oklch-secondary-dark 100%) !default;
+$gradation-tertiary: linear-gradient(90deg, $oklch-tertiary-light 0%, $oklch-tertiary-dark 100%) !default;
+
+// --- drop shadow ---
+$drop-shadow-lv1: 0 8px 8px rgba(0, 0, 0, 0.12) !default;
+$drop-shadow-lv2: 0 16px 16px rgba(0, 0, 0, 0.12) !default;
+$drop-shadow-lv3: 0 24px 24px rgba(0, 0, 0, 0.12) !default;
+$drop-shadow-lv4: 0 32px 32px rgba(0, 0, 0, 0.12) !default;
+$drop-shadow-lv5: 0 40px 40px rgba(0, 0, 0, 0.12) !default;
+
+// --- border-radius ---
+$border-radius-lv1: 8px !default;
+$border-radius-lv2: 16px !default;
+$border-radius-lv3: 24px !default;
+$border-radius-lv4: 32px !default;
+$border-radius-lv5: 40px !default;
+$border-radius-circle: 50% !default;
+
+// --- opacity ---
+$opacity-lv1: 0.1 !default;
+$opacity-lv2: 0.3 !default;
+$opacity-lv3: 0.5 !default;
+$opacity-lv4: 0.7 !default;
+$opacity-lv5: 0.9 !default;
+
+// Animations
+// ==========================================================================
+$duration-lv1: 0.1s !default;
+$duration-lv2: 0.3s !default;
+$duration-lv3: 0.5s !default;
+$duration-lv4: 0.7s !default;
+$duration-lv5: 0.9s !default;
+
+// Layout
+// ==========================================================================
+// --- width ---
+$layout-width-canvas: 1600px !default;
+$layout-width-inner: 1200px !default;
+$layout-width-tab: 1024px !default;
+$layout-width-sp: 768px !default;
+
+// --- spacing ---
+$space-xxs: 8px !default;
+$space-xs: 16px !default;
+$space-sm: 24px !default;
+$space-md: 32px !default;
+$space-lg: 40px !default;
+$space-xl: 48px !default;
+$space-xxl: 56px !default;
+
+// Path
+// ==========================================================================
+$pathImages: "../images/" !default;
+
+// Breakpoint
+// ==========================================================================
+$breakpoints: (
+  "xxxs-min": 360px,
+  "xxxs-max": 359px,
+  "xxs-min": 400px,
+  "xxs-max": 399px,
+  "xs-min": 460px,
+  "xs-max": 459px,
+  "sm-min": 600px,
+  "sm-max": 599px,
+  "md-min": 782px,
+  "md-max": 781px,
+  "lg-min": 960px,
+  "lg-max": 959px,
+  "xl-min": 1080px,
+  "xl-max": 1079px,
+  "xxl-min": 1200px,
+  "xxl-max": 1199px,
+  "xxxl-min": 1320px,
+  "xxxl-max": 1319px,
+) !default;
+
+// Layer
+// ==========================================================================
+$layer: (
+  modal: 100,
+  drawer: 90,
+  floating: 70,
+  header: 60,
+  default: 1
+) !default;
+
+// Utility important
+// ========================================================================
+// object/utilityレイヤーにimportantをすべて指定する場合は、
+// trueを、指定しない場合はfalseを指定します。
+$utility-important: true;
+$important: !important;
+
+@if $utility-important == true {
+  $important: !important;
+} @else {
+  $important: null;
+}
+
+// Default
+// ==========================================================================
+
+// --- default color ---
+$default-color-base: $color-base-primary !default;
+$default-color-main: $color-main-primary-500 !default;
+$default-color-accent: $color-accent-primary-500 !default;
+
+// --- default font ---
+$default-font-size-pc: $font-size-md !default;
+$default-font-size-sp: $font-size-sm !default;
+$default-font-weight: $font-weight-500 !default;
+$default-line-height: $line-height-md !default;
+$default-letter-spacing: $letter-spacing-md !default;
+$default-font-family-ja: $font-family-ja !default;
+$default-font-family-en: $font-family-en !default;
+
+// --- default effect ---
+$default-drop-shadow: $drop-shadow-lv3 !default;
+$default-border-radius: $border-radius-lv3 !default;
+$default-opacity: $opacity-lv3 !default;
+
+// --- default animations ---
+$default-duration: $duration-lv3 !default;

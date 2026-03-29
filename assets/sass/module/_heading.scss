@@ -1,0 +1,41 @@
+@use "../global" as *;
+
+/* heading
+========================================================================*/
+
+.heading-h2-primary {
+  &::before {
+    content: none !important;
+  }
+
+  > h2 {
+    border-left: none !important;
+    font-family: var(--default-font-family-en);
+    font-size: fluid-size(40, 80) !important;
+    font-style: italic !important;
+    margin-block: var(--leading-trim) !important;
+    padding: 0 !important;
+  }
+
+  > p {
+    font-size: fluid-size(18, 24);
+    font-weight: var(--font-weight-700);
+  }
+}
+
+.heading-h3-primary {
+  > h3 {
+    font-size: fluid-size(24, 32) !important;
+    margin-block: var(--leading-trim) !important;
+    padding-left: 0 !important;
+    &::before {
+      content: none !important;
+    };
+  }
+
+  > p {
+    font-family: var(--default-font-family-en);
+    font-size: fluid-size(16, 24) !important;
+    margin-block: var(--leading-trim) !important;
+  }
+}
